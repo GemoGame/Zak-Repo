@@ -8,10 +8,21 @@ signal move_left
 signal move_right
 signal released
 signal attack
+
+onready var enemy = preload("res://Platformer/Scenes/BluePatrol.tscn")
+var obj
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_spawn_enemy()
+	$SpawnTimer.start()
 	pass # Replace with function body.
 
+
+func _spawn_enemy():
+	var obj = enemy.instance()
+	obj._spawn_self(Vector2(900,300))
+	add_child(obj)
+	pass
 
 func _input(event):
 	if event is InputEventMouseButton && event.position.x < 1024/2:
@@ -34,6 +45,18 @@ func _input(event):
 		emit_signal("attack")
 		pass
 	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+
+func _on_SpawnTimer_timeout():
+	obj = enemy.instance()
+	var rand_number = int(rand_range(0,101))
+	if rand_number > 50:
+		obj._spawn_self(Vector2(1200,300))
+	else:
+		obj._spawn_self(Vector2(-200,300))
+	add_child(obj)
+	pass # Replace with function body.
+
+
+func _on_Player_game_over():
+	pass # Replace with function body.

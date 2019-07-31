@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Platformer/Scripts/BounceMain.gd" type="Script" id=1]
 [ext_resource path="res://Platformer/Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Platformer/Assets/UI/back.png" type="Texture" id=3]
 [ext_resource path="res://Platformer/Assets/UI/next.png" type="Texture" id=4]
+[ext_resource path="res://Platformer/Scenes/HUD.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -18,19 +19,20 @@ collision_mask = 6
 
 [node name="Platform" type="StaticBody2D" parent="."]
 collision_layer = 2
-collision_mask = 5
-
-[node name="ColorRect" type="ColorRect" parent="Platform"]
-margin_top = 500.0
-margin_right = 1024.0
-margin_bottom = 520.0
+collision_mask = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 position = Vector2( 512, 510 )
-scale = Vector2( 52, 1 )
+scale = Vector2( 70, 1 )
 shape = SubResource( 1 )
 
 [node name="block1" type="Sprite" parent="Platform"]
+
+[node name="ColorRect" type="ColorRect" parent="Platform"]
+margin_left = -187.0
+margin_top = 502.0
+margin_right = 1215.0
+margin_bottom = 542.0
 
 [node name="Left" type="TextureButton" parent="."]
 modulate = Color( 1, 1, 1, 0.313726 )
@@ -60,13 +62,20 @@ rect_rotation = 270.0
 rect_scale = Vector2( 0.2, 0.2 )
 texture_normal = ExtResource( 4 )
 
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]
+
 [connection signal="attack" from="." to="Player" method="_on_BounceMain_attack"]
 [connection signal="jump" from="." to="Player" method="_on_BounceMain_jump"]
 [connection signal="move_left" from="." to="Player" method="_on_BounceMain_move_left"]
 [connection signal="move_right" from="." to="Player" method="_on_BounceMain_move_right"]
 [connection signal="released" from="." to="Player" method="_on_BounceMain_released"]
+[connection signal="get_score" from="Player" to="HUD" method="_on_Player_get_score"]
 [connection signal="button_down" from="Left" to="Player" method="_on_Left_button_down"]
 [connection signal="button_up" from="Left" to="Player" method="_on_Left_button_up"]
 [connection signal="button_down" from="Right" to="Player" method="_on_Right_button_down"]
 [connection signal="button_up" from="Right" to="Player" method="_on_Right_button_up"]
 [connection signal="pressed" from="Jump" to="Player" method="_on_Jump_pressed"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

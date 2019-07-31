@@ -1,36 +1,46 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Platformer/Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Attack/Attack_04.png" type="Texture" id=2]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Attack/Attack_05.png" type="Texture" id=3]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Attack/Attack_06.png" type="Texture" id=4]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Attack/Attack_07.png" type="Texture" id=5]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Attack/Attack_08.png" type="Texture" id=6]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Attack/Attack_09.png" type="Texture" id=7]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Attack/Attack_10.png" type="Texture" id=8]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Idle/Idle_01.png" type="Texture" id=9]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Idle/Idle_02.png" type="Texture" id=10]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Idle/Idle_03.png" type="Texture" id=11]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Idle/Idle_04.png" type="Texture" id=12]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Idle/Idle_05.png" type="Texture" id=13]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Idle/Idle_06.png" type="Texture" id=14]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Jump/Jump_01.png" type="Texture" id=15]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Jump/Jump_02.png" type="Texture" id=16]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Jump/Jump_03.png" type="Texture" id=17]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Jump/Jump_04.png" type="Texture" id=18]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Jump/Jump_05.png" type="Texture" id=19]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Jump/Jump_06.png" type="Texture" id=20]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Run/Run_01.png" type="Texture" id=21]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Run/Run_02.png" type="Texture" id=22]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Run/Run_03.png" type="Texture" id=23]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Run/Run_04.png" type="Texture" id=24]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Run/Run_05.png" type="Texture" id=25]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Run/Run_06.png" type="Texture" id=26]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Run/Run_07.png" type="Texture" id=27]
-[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Run/Run_08.png" type="Texture" id=28]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Death/Death_10.png" type="Texture" id=2]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Attack/Attack_04.png" type="Texture" id=3]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Attack/Attack_05.png" type="Texture" id=4]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Attack/Attack_06.png" type="Texture" id=5]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Attack/Attack_07.png" type="Texture" id=6]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Attack/Attack_08.png" type="Texture" id=7]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Attack/Attack_09.png" type="Texture" id=8]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Attack/Attack_10.png" type="Texture" id=9]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Death/Death_02.png" type="Texture" id=10]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Death/Death_03.png" type="Texture" id=11]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Death/Death_04.png" type="Texture" id=12]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Death/Death_05.png" type="Texture" id=13]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Death/Death_06.png" type="Texture" id=14]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Death/Death_07.png" type="Texture" id=15]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Death/Death_08.png" type="Texture" id=16]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Death/Death_09.png" type="Texture" id=17]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Idle/Idle_01.png" type="Texture" id=18]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Idle/Idle_02.png" type="Texture" id=19]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Idle/Idle_03.png" type="Texture" id=20]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Idle/Idle_04.png" type="Texture" id=21]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Idle/Idle_05.png" type="Texture" id=22]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Idle/Idle_06.png" type="Texture" id=23]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Jump/Jump_01.png" type="Texture" id=24]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Jump/Jump_02.png" type="Texture" id=25]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Jump/Jump_03.png" type="Texture" id=26]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Jump/Jump_04.png" type="Texture" id=27]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Jump/Jump_05.png" type="Texture" id=28]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Jump/Jump_06.png" type="Texture" id=29]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Run/Run_01.png" type="Texture" id=30]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Run/Run_02.png" type="Texture" id=31]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Run/Run_03.png" type="Texture" id=32]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Run/Run_04.png" type="Texture" id=33]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Run/Run_05.png" type="Texture" id=34]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Run/Run_06.png" type="Texture" id=35]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Run/Run_07.png" type="Texture" id=36]
+[ext_resource path="res://Platformer/Assets/TexturePack/SwordyGuy/Run/Run_08.png" type="Texture" id=37]
 
-[sub_resource type="Animation" id=1]
-resource_name = "attack_anim"
+[sub_resource type="CapsuleShape2D" id=1]
+
+[sub_resource type="Animation" id=2]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -43,10 +53,26 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ]
+"values": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
+resource_name = "death_anim"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 2 ) ]
+}
+
+[sub_resource type="Animation" id=4]
 length = 0.75
 loop = true
 tracks/0/type = "value"
@@ -59,10 +85,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
+"values": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -73,10 +99,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ]
+"values": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 length = 0.7
 loop = true
 tracks/0/type = "value"
@@ -89,28 +115,31 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ]
+"values": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ]
 }
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 62.3897, 10 )
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 2
 script = ExtResource( 1 )
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 22 )
+scale = Vector2( 1, 3 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
 
 [node name="Anim" type="AnimationPlayer" parent="."]
-anims/attack_anim = SubResource( 1 )
-anims/idle_anim = SubResource( 2 )
-anims/on_jump = SubResource( 3 )
-anims/running_anim = SubResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 22 )
-scale = Vector2( 2.5, 3 )
-shape = SubResource( 5 )
+anims/attack_anim = SubResource( 2 )
+anims/death_anim = SubResource( 3 )
+anims/idle_anim = SubResource( 4 )
+anims/on_jump = SubResource( 5 )
+anims/running_anim = SubResource( 6 )
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.6
@@ -120,5 +149,45 @@ one_shot = true
 wait_time = 0.04
 one_shot = true
 
+[node name="Sword" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]
+modulate = Color( 1, 1, 1, 0.00392157 )
+position = Vector2( -90, 39 )
+scale = Vector2( 1, 3 )
+z_index = 1
+shape = SubResource( 7 )
+
+[node name="ColorRect" type="ColorRect" parent="Sword"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -150.0
+margin_top = 13.0
+margin_right = -28.0
+margin_bottom = 66.0
+
+[node name="OnHitTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="PlayerCollider" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="Collider" type="CollisionShape2D" parent="PlayerCollider"]
+position = Vector2( 0, 22 )
+scale = Vector2( 2.5, 3 )
+z_index = 1
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="PlayerCollider"]
+margin_left = -20.0
+margin_top = -27.0
+margin_right = 20.0
+margin_bottom = 73.0
+color = Color( 1, 1, 1, 0 )
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
 [connection signal="timeout" from="InputDelay" to="." method="_on_InputDelay_timeout"]
+[connection signal="body_entered" from="Sword" to="." method="_on_Sword_body_entered"]
+[connection signal="timeout" from="OnHitTimer" to="." method="_on_OnHitTimer_timeout"]
+[connection signal="body_entered" from="PlayerCollider" to="." method="_on_PlayerCollider_body_entered"]
