@@ -66,6 +66,8 @@ texture_normal = ExtResource( 4 )
 wait_time = 3.0
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
+z_index = 2
+z_as_relative = false
 
 [connection signal="attack" from="." to="Player" method="_on_BounceMain_attack"]
 [connection signal="jump" from="." to="Player" method="_on_BounceMain_jump"]

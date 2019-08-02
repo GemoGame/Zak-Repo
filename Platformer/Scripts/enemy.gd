@@ -4,12 +4,14 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 export (int) var run_speed = 200
-export (int) var gravity = 1200
+export (int) var gravity = 1800
+var up_speed = -600
 var velocity = Vector2()
 var right
 var left
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	position.y = 480
 	$Anim.play("idle_anim")
 	_check_velocity_update()
 	if right:
@@ -39,11 +41,38 @@ func _physics_process(delta):
 	elif left:
 		if position.x < -20:
 			queue_free()
-
+			
+	if position.y > 576:
+		queue_free()
+	
 	velocity.y += gravity * delta
+	
+	if gravity == 0:
+		velocity.y = up_speed
+			
 	move_and_slide(velocity,Vector2(0,-1))
 	pass
 
+func _disable_collosion(cond):
+	$CollisionShape2D.disabled = cond
+	pass
+	
+func _reverse_gravity():
+	$Anim.stop()
+	_set_gravity(false)
+	velocity.x = 0
+	$RevGravity.start()
+
+func _set_gravity(cond):
+	if cond:
+		gravity = 400
+	else:
+		gravity = 0
 
 func _spawn_self(pos):
 	position = pos
+
+func _on_RevGravity_timeout():
+	velocity.y += -1*up_speed*2/3
+	_set_gravity(true)
+	pass # Replace with function body.

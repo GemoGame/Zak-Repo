@@ -16,6 +16,9 @@ var idle_cond
 var score = 0
 var death = false
 
+func _ready():
+	position.x = 1024/2
+
 signal get_score(score)
 #signal game_over
 
@@ -59,7 +62,8 @@ func _physics_process(delta):
 	if jumping and is_on_floor():
 		jumping = false
 		jump = false
-	move_and_slide(velocity, Vector2(0, -1))
+	if position.x > 0 and position.x < 1024:
+		move_and_slide(velocity, Vector2(0, -1))
 	
 
 
@@ -169,7 +173,10 @@ func _on_Sword_body_entered(body):
 		if attacking:
 			score += 1
 			emit_signal("get_score",score)
-			body.queue_free()
+			body.call_deferred("_disable_collosion",true)
+			body.call_deferred("_reverse_gravity")
+#			call("set","position.y",-400)
+#			body.queue_free()
 #		body.queue_free()
 	pass # Replace with function body.
 
