@@ -8,7 +8,10 @@ signal move_left
 signal move_right
 signal released
 signal attack
-
+onready var enemies = [preload("res://Platformer/Scenes/BluePatrol.tscn"),
+					   preload("res://Platformer/Scenes/Zombie.tscn"),
+					   preload("res://Platformer/Scenes/Demon.tscn")
+					]
 onready var enemy = preload("res://Platformer/Scenes/BluePatrol.tscn")
 var obj
 # Called when the node enters the scene tree for the first time.
@@ -48,7 +51,8 @@ func _input(event):
 
 
 func _on_SpawnTimer_timeout():
-	obj = enemy.instance()
+	var id = int(rand_range(0,3))
+	obj = enemies[id].instance()
 	var rand_number = int(rand_range(0,101))
 	if rand_number > 50:
 		obj._spawn_self(Vector2(1200,300))

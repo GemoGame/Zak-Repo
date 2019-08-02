@@ -63,7 +63,6 @@ rect_scale = Vector2( 0.2, 0.2 )
 texture_normal = ExtResource( 4 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 3.0
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 z_index = 2

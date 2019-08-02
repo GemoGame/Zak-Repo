@@ -115,27 +115,29 @@ func _on_BounceMain_jump():
 
 
 func _on_BounceMain_move_left():
-	if !attacking:
-		get_tree().get_root().set_disable_input(true)
-		$InputDelay.start()
-		right = false
-		left = true
-		idle_cond = false
+	if attacking:
+		attacking = false
+	get_tree().get_root().set_disable_input(true)
+	$InputDelay.start()
+	right = false
+	left = true
+	idle_cond = false
 	pass # Replace with function body.
 
 
 func _on_BounceMain_move_right():
-	if !attacking:
-		$InputDelay.start()
-		get_tree().get_root().set_disable_input(true)
-		right = true
-		left = false
-		idle_cond = false
+	if attacking:
+		attacking = false
+	$InputDelay.start()
+	get_tree().get_root().set_disable_input(true)
+	right = true
+	left = false
+	idle_cond = false
 	pass # Replace with function body.
 
 
 func _on_BounceMain_attack():
-	if is_on_floor():
+	if is_on_floor() && !attacking:
 		$InputDelay.start()
 		$OnHitTimer.start()
 		print("attack")
@@ -174,7 +176,7 @@ func _on_Sword_body_entered(body):
 			score += 1
 			emit_signal("get_score",score)
 			body.call_deferred("_disable_collosion",true)
-			body.call_deferred("_reverse_gravity")
+			body.call_deferred("_death_state")
 #			call("set","position.y",-400)
 #			body.queue_free()
 #		body.queue_free()

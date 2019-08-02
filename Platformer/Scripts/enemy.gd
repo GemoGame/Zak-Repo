@@ -11,8 +11,8 @@ var right
 var left
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	position.y = 480
-	$Anim.play("idle_anim")
+	position.y = 460
+	$Anim.play("run_anim")
 	_check_velocity_update()
 	if right:
 		velocity.x += run_speed
@@ -57,11 +57,13 @@ func _disable_collosion(cond):
 	$CollisionShape2D.disabled = cond
 	pass
 	
-func _reverse_gravity():
+
+func _death_state():
 	$Anim.stop()
 	_set_gravity(false)
 	velocity.x = 0
 	$RevGravity.start()
+	pass
 
 func _set_gravity(cond):
 	if cond:
@@ -73,6 +75,6 @@ func _spawn_self(pos):
 	position = pos
 
 func _on_RevGravity_timeout():
-	velocity.y += -1*up_speed*2/3
+	velocity.y += -1*up_speed*4/5
 	_set_gravity(true)
 	pass # Replace with function body.
