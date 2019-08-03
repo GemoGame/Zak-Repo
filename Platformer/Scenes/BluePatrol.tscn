@@ -29,6 +29,7 @@ extents = Vector2( 13.7589, 10 )
 collision_layer = 4
 collision_mask = 3
 script = ExtResource( 1 )
+tag = "blue_patrol"
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 anims/run_anim = SubResource( 1 )

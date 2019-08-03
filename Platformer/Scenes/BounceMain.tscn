@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Platformer/Scripts/BounceMain.gd" type="Script" id=1]
 [ext_resource path="res://Platformer/Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Platformer/Assets/UI/back.png" type="Texture" id=3]
-[ext_resource path="res://Platformer/Assets/UI/next.png" type="Texture" id=4]
-[ext_resource path="res://Platformer/Scenes/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Platformer/Scripts/Platform.gd" type="Script" id=3]
+[ext_resource path="res://Platformer/Assets/UI/back.png" type="Texture" id=4]
+[ext_resource path="res://Platformer/Assets/UI/next.png" type="Texture" id=5]
+[ext_resource path="res://Platformer/Scenes/HUD.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -16,10 +17,13 @@ script = ExtResource( 1 )
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 26, 93 )
 collision_mask = 6
+tag = "player"
 
 [node name="Platform" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 13
+script = ExtResource( 3 )
+tag = "platform"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 position = Vector2( 512, 510 )
@@ -41,7 +45,7 @@ margin_top = 374.158
 margin_right = 544.536
 margin_bottom = 886.158
 rect_scale = Vector2( 0.2, 0.2 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 4 )
 
 [node name="Right" type="TextureButton" parent="."]
 modulate = Color( 1, 1, 1, 0.313726 )
@@ -50,7 +54,7 @@ margin_top = 377.412
 margin_right = 710.466
 margin_bottom = 889.411
 rect_scale = Vector2( 0.2, 0.2 )
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 5 )
 
 [node name="Jump" type="TextureButton" parent="."]
 modulate = Color( 1, 1, 1, 0.313726 )
@@ -60,11 +64,11 @@ margin_right = 1383.95
 margin_bottom = 967.497
 rect_rotation = 270.0
 rect_scale = Vector2( 0.2, 0.2 )
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 5 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
 
-[node name="HUD" parent="." instance=ExtResource( 5 )]
+[node name="HUD" parent="." instance=ExtResource( 6 )]
 z_index = 2
 z_as_relative = false
 

@@ -1,32 +1,35 @@
 extends Node2D
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+## SEND SIGNALS TO CONTROL THE PLAYER
 signal jump
 signal move_left
 signal move_right
 signal released
 signal attack
+
+
+## PRELOADED ENEMIES SCENES
 onready var enemies = [preload("res://Platformer/Scenes/BluePatrol.tscn"),
 					   preload("res://Platformer/Scenes/Zombie.tscn"),
 					   preload("res://Platformer/Scenes/Demon.tscn")
 					]
 onready var enemy = preload("res://Platformer/Scenes/BluePatrol.tscn")
 var obj
-# Called when the node enters the scene tree for the first time.
+
+## FIRST ENEMY WILL BE SPAWNED AND SPAWN TIMER GOES START
 func _ready():
 	_spawn_enemy()
 	$SpawnTimer.start()
 	pass # Replace with function body.
 
-
+##ENEMY INSTANCE IS GOING TO BE CREATED AND 
+##OBJECT POSITION MUST BE SET BEFORE SPAWNED
 func _spawn_enemy():
 	var obj = enemy.instance()
 	obj._spawn_self(Vector2(900,300))
-	add_child(obj)
+	add_child(obj) # Object Spawn
 	pass
 
+## CHECKING THE INPUT IN ORDER TO SEND SIGNALS TO PLAYER SCENE
 func _input(event):
 	if event is InputEventMouseButton && event.position.x < 1024/2:
 		if !event.is_pressed():
@@ -50,6 +53,8 @@ func _input(event):
 	pass
 
 
+## DURING TIMEOUT, STORED ENEMIES SCENE ARE RANDOMIZED TO BE CHOSEN AS NEXT SPAWNED ENEMIES. 
+## ALSO THE SPAWN PLACE BEING RANDOMIZED. WHETHER BE LEFT OR RIGHT
 func _on_SpawnTimer_timeout():
 	var id = int(rand_range(0,3))
 	obj = enemies[id].instance()

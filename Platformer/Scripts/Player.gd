@@ -3,6 +3,7 @@ extends KinematicBody2D
 export (int) var run_speed = 200
 export (int) var jump_speed = -800
 export (int) var gravity = 1200
+export (String) var tag = ""
 
 var velocity = Vector2()
 var jumping = false
@@ -79,7 +80,7 @@ func _on_Right_button_up():
 
 
 func _on_Jump_pressed():
-	if is_on_floor():
+	if is_on_floor() && !death:
 		jump = true
 		idle_cond = false
 	pass # Replace with function body.
@@ -93,6 +94,10 @@ func _on_BounceMain_released():
 
 
 func _on_Right_button_down():
+	if attacking:
+		attacking = false
+	$InputDelay.start()
+	get_tree().get_root().set_disable_input(true)
 	right = true
 	left = false
 	idle_cond = false
@@ -100,6 +105,10 @@ func _on_Right_button_down():
 
 
 func _on_Left_button_down():
+	if attacking:
+		attacking = false
+	get_tree().get_root().set_disable_input(true)
+	$InputDelay.start()
 	right = false
 	left = true
 	idle_cond = false
@@ -137,7 +146,7 @@ func _on_BounceMain_move_right():
 
 
 func _on_BounceMain_attack():
-	if is_on_floor() && !attacking:
+	if is_on_floor() && !attacking && !death:
 		$InputDelay.start()
 		$OnHitTimer.start()
 		print("attack")
@@ -173,7 +182,12 @@ func _on_Sword_body_entered(body):
 #		elif $Sword.position.x > position.x && !facing_right:
 #			body.queue_free()
 		if attacking:
-			score += 1
+			if body.tag == "blue_patrol":
+				score += 1
+			elif body.tag == "zombie":
+				score += 2
+			elif body.tag == "demon":
+				score += 3
 			emit_signal("get_score",score)
 			body.call_deferred("_disable_collosion",true)
 			body.call_deferred("_death_state")
@@ -196,10 +210,10 @@ func _on_PlayerCollider_body_entered(body):
 	
 	if body != self && !death:
 		var enemy = load("res://Platformer/Scenes/BluePatrol.tscn")
+		$Anim.stop()
 		$Anim.play("death_anim")
-		add_collision_exception_with(body)
+#		add_collision_exception_with(body)
 		death = true
-		return
 	pass
 	add_collision_exception_with(body)
 	pass # Replace with function body.
