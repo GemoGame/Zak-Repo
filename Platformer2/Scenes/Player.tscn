@@ -1,0 +1,59 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Platformer2/Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Platformer2/Assets/TexturePack/Individual Sprites/adventurer-idle-00.png" type="Texture" id=2]
+[ext_resource path="res://Platformer2/Assets/TexturePack/Individual Sprites/adventurer-idle-01.png" type="Texture" id=3]
+[ext_resource path="res://Platformer2/Assets/TexturePack/Individual Sprites/adventurer-jump-00.png" type="Texture" id=4]
+[ext_resource path="res://Platformer2/Assets/TexturePack/Individual Sprites/adventurer-jump-01.png" type="Texture" id=5]
+[ext_resource path="res://Platformer2/Assets/TexturePack/Individual Sprites/adventurer-jump-02.png" type="Texture" id=6]
+[ext_resource path="res://Platformer2/Assets/TexturePack/Individual Sprites/adventurer-jump-03.png" type="Texture" id=7]
+[ext_resource path="res://Platformer2/Assets/TexturePack/Individual Sprites/adventurer-fall-00.png" type="Texture" id=8]
+[ext_resource path="res://Platformer2/Assets/TexturePack/Individual Sprites/adventurer-fall-01.png" type="Texture" id=9]
+[ext_resource path="res://Platformer2/Assets/TexturePack/Individual Sprites/adventurer-run-00.png" type="Texture" id=10]
+[ext_resource path="res://Platformer2/Assets/TexturePack/Individual Sprites/adventurer-run-01.png" type="Texture" id=11]
+[ext_resource path="res://Platformer2/Assets/TexturePack/Individual Sprites/adventurer-run-02.png" type="Texture" id=12]
+[ext_resource path="res://Platformer2/Assets/TexturePack/Individual Sprites/adventurer-run-03.png" type="Texture" id=13]
+[ext_resource path="res://Platformer2/Assets/TexturePack/Individual Sprites/adventurer-run-04.png" type="Texture" id=14]
+[ext_resource path="res://Platformer2/Assets/TexturePack/Individual Sprites/adventurer-run-05.png" type="Texture" id=15]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "jump",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "land",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 24.1017 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 25, 33 )
+script = ExtResource( 1 )
+GRAVITY_SPEED = 900
+
+[node name="PlayerAnim" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+animation = "jump"
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 11 )
+shape = SubResource( 2 )
+
