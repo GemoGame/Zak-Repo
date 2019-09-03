@@ -7,6 +7,7 @@ extends KinematicBody2D
 var facing_left = false
 var facing_right = false
 var is_jumping = false
+var is_attacking = false
 
 ## PUBLIC VARIABLES
 export (int) var GRAVITY_SPEED = 3200
@@ -40,12 +41,19 @@ func _input(event):
 	pass
 	
 	if Input.is_action_pressed("ui_up") && !is_jumping:
-		$PlayerAnim.play("jump")
-		is_jumping = true
-		vel.y = -JUMP_SPEED
+		if is_on_floor():
+			$PlayerAnim.play("jump")
+			is_jumping = true
+			vel.y = -JUMP_SPEED
 		pass
 	
-	if !facing_left && !facing_right && !is_jumping:
+	if Input.is_action_pressed("attack") && !is_attacking:
+		if is_on_floor():
+			is_attacking = true
+			$PlayerAnim.play("idle_attack")
+			$Attack1.start()
+	
+	if _is_idle():
 		$PlayerAnim.play("idle")
 
 func _physics_process(delta):
@@ -53,7 +61,7 @@ func _physics_process(delta):
 	if is_at_edge() && is_on_floor():
 		vel.x = 0
 	vel = move_and_slide(vel,Vector2(0,-1))
-	if is_on_floor():
+	if is_on_floor() && !is_attacking:
 		is_jumping = false
 		if facing_left || facing_right:
 			$PlayerAnim.play("run")
@@ -74,3 +82,30 @@ func is_at_edge():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func _is_idle():
+	if !facing_left && !facing_right && !is_jumping && !is_attacking:
+		return true
+	pass
+
+func _on_Attack1_timeout():
+	if Input.is_action_pressed("attack") && is_on_floor():
+		$PlayerAnim.play("idle_attack_2")
+		$Attack2.start()
+	else:
+		is_attacking = false
+	pass # Replace with function body.
+
+
+func _on_Attack2_timeout():
+	if Input.is_action_pressed("attack") && is_on_floor():
+		$PlayerAnim.play("idle_attack_3")
+		$Attack3.start()
+	else:
+		is_attacking = false
+	pass # Replace with function body.
+
+
+func _on_Attack3_timeout():
+	is_attacking = false
+	pass # Replace with function body.
