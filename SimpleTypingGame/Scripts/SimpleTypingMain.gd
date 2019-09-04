@@ -17,6 +17,10 @@ var white_list_scancode = ["Comma",
 						   "Exclam",
 						   "Question"
 						]
+var text_list		= ["Nunc id lacus orci. Nulla facilisi. Nulla sapien nisi, ullamcorper ut iaculis sed, convallis quis tellus. Integer eu laoreet ipsum. Morbi at metus sit amet sapien vehicula luctus a id dui. Donec fringilla erat elit, non tincidunt sem sodales vel. In imperdiet congue eros vel aliquam. Donec at libero eget nibh tincidunt blandit. Sed elementum ultricies blandit. In quis eleifend ligula. Aliquam ultrices enim sit amet semper venenatis. Nam quis facilisis erat. Ut dictum ante imperdiet dapibus consequat. Morbi vitae feugiat nunc, nec bibendum velit. Curabitur vitae mattis ipsum, vel dignissim ligula. Mauris scelerisque dignissim augue, suscipit dapibus dolor ullamcorper quis.",
+					   "Aenean sit amet tellus quis arcu pretium varius eu cursus lectus. Aenean semper condimentum tincidunt. Nulla congue hendrerit lacus. Quisque ac erat urna. In libero ipsum, bibendum vel nunc in, pellentesque ultricies est. Aliquam gravida ligula et sem vulputate fermentum. Nulla bibendum porttitor dolor, et tristique turpis fringilla non. Fusce accumsan ultricies eros, ut fringilla ex porta non. Nam eleifend nunc ligula, at tristique purus pellentesque nec. Maecenas a porta ex, vitae mattis tellus. Ut condimentum at diam ac interdum.",
+					   "Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse iaculis, sem a maximus laoreet, neque erat fringilla nibh, in convallis dui nunc in lectus. Maecenas elementum ultrices dui et lobortis. Mauris in tortor vel leo vehicula mattis. Duis pulvinar risus in arcu auctor, quis luctus sem consectetur. Pellentesque rutrum turpis a tincidunt tempor. Nunc interdum leo eros, sit amet fringilla ipsum hendrerit sit amet. Proin sagittis in dolor a varius. Mauris maximus dolor ultricies sagittis eleifend. Vivamus posuere nibh sed ante fermentum, molestie viverra enim vestibulum. Aliquam tempus elit sit amet nulla sollicitudin fermentum. Maecenas blandit mi id turpis consequat porttitor."
+					]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_instance_init()
@@ -56,7 +60,7 @@ func _input(event):
 #	pass
 
 func _check_pressed_key(pressed_key):
-	if text_str[current_char].matchn(pressed_key):
+	if text_str[current_char].match(pressed_key):
 		_update_color()
 		print("correct")
 		current_char += 1
